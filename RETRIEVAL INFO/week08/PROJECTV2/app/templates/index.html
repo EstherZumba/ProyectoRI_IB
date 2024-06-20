@@ -140,7 +140,7 @@
         <div class="results">
             <h3>Resultados BoW</h3>
             {% for archivo, similitud, contenido in resultados_bow %}
-            <div class="result-box" style="background-color: {{ loop.cycle('#ffffcc', '#66ccff') }}">
+        <div class="result-box">                
                 <strong>Archivo:</strong> {{ archivo }} <br>
                 <strong>Similitud:</strong> {{ similitud }} <br>
                 <strong>Contenido:</strong> {{ contenido }} <br>
@@ -151,7 +151,7 @@
         <div class="results">
             <h3>Resultados TF-IDF</h3>
             {% for archivo, similitud, contenido in resultados_tfidf %}
-            <div class="result-box" style="background-color: {{ loop.cycle('#ffffcc', '#66ccff') }}">
+            <div class="result-box">
                 <strong>Archivo:</strong> {{ archivo }} <br>
                 <strong>Similitud:</strong> {{ similitud }} <br>
                 <strong>Contenido:</strong> {{ contenido }} <br>

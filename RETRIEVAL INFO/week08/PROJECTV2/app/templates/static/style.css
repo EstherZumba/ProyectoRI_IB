@@ -17,6 +17,13 @@
         border-radius: 8px;
     }
     
+    
+    .result-box:nth-child(odd) {
+        background-color: #ffffcc;
+    }
+    .result-box:nth-child(even) {
+        background-color: #66ccff;
+    }
     .header {
         text-align: center;
         padding: 20px 0;
