@@ -1,3 +1,122 @@
+Styles.css mio
+body {
+    background-color: black;  /* Color de fondo negro para toda la página */
+    color: white;  /* Color de texto blanco */
+    font-family: Arial, sans-serif;  /* Familia de fuentes para todo el documento */
+    text-align: center;  /* Centrar texto en el cuerpo */
+    margin: 0;  /* Eliminar márgenes predeterminados */
+    padding: 0;  /* Eliminar relleno predeterminado */
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;  /* Espacio en la parte superior */
+    border: 1px solid #ccc;  /* Borde alrededor del contenido */
+    border-radius: 10px;  /* Borde redondeado */
+    background-color: #222;  /* Color de fondo para el contenedor principal */
+    padding: 20px;  /* Espaciado interno */
+}
+
+.header {
+    background-color: #333;  /* Color de fondo para el encabezado */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;  /* Espacio entre el encabezado y los resultados */
+    text-align: center;  /* Centrar contenido */
+    border: 1px solid #666;  /* Borde alrededor del encabezado */
+    margin-top: 20px;  /* Espacio superior */
+}
+
+.header h1 {
+    margin-top: 0;  /* Eliminar margen superior del título principal */
+    color: white;  /* Color del texto */
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;  /* Espacio entre el formulario y los resultados */
+}
+
+form label, form input, form button {
+    margin: 5px;
+}
+
+
+.results {
+    margin-bottom: 30px;  /* Espacio entre los bloques de resultados */
+}
+
+.result-box {
+    background-color: #ffffcc;  /* Fondo inicial para los resultados */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;  /* Espacio entre los cuadros de resultados */
+}
+
+.result-box:nth-child(even) {
+    background-color: #66ccff;  /* Fondo alternativo para resultados pares */
+}
+
+.metrics {
+    margin-top: 50px;  /* Espacio superior para las métricas */
+    text-align: center;  /* Centrar contenido de métricas */
+    padding: 20px;  /* Espaciado interno para métricas */
+    background-color: #333;  /* Color de fondo para las métricas */
+    border-radius: 5px;  /* Borde redondeado para las métricas */
+    clear: both;  /* Limpiar flotadores */
+}
+
+.metrics table {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.metrics th, .metrics td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+.metrics th {
+    background-color: #f2f2f2;  /* Color de fondo para las celdas de encabezado */
+}
+
+.metrics td {
+    background-color: #66ccff;  /* Color de fondo para las celdas de métricas */
+    text-align: center;
+}
+
+.resultados {
+    border: 1px solid #ccc;  /* Borde alrededor de los resultados */
+    border-radius: 5px;  /* Borde redondeado */
+    padding: 10px;  /* Espaciado interno */
+    margin-bottom: 20px;  /* Espacio entre los resultados y el siguiente contenido */
+    background-color: #f0f0f0;  /* Color de fondo para los resultados */
+}
+
+.resultados h3 {
+    background-color: #666;  /* Color de fondo para el encabezado del resultado */
+    color: white;  /* Color del texto del encabezado */
+    padding: 5px;  /* Espaciado interno del encabezado */
+    border-top-left-radius: 5px;  /* Bordes redondeados en la esquina superior izquierda */
+    border-top-right-radius: 5px;  /* Bordes redondeados en la esquina superior derecha */
+    margin-top: 0;  /* Eliminar el margen superior del encabezado */
+}
+
+.resultados ul {
+    list-style-type: none;  /* Eliminar viñetas de la lista */
+    padding: 0;  /* Eliminar el relleno de la lista */
+}
+
+.resultados li {
+    background-color: #ddd;  /* Color de fondo para cada elemento de la lista */
+    padding: 10px;  /* Espaciado interno de cada elemento de la lista */
+    margin-bottom: 5px;  /* Espacio entre elementos de la lista */
+}
+
+index.html
 <!DOCTYPE html>
 <html lang="es">
 <head>
