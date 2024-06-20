@@ -1,0 +1,113 @@
+
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+    
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 20px 0;
+        background: #4CAF50;
+        color: white;
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .header h1 {
+        margin: 0;
+    }
+    
+    form {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    form label {
+        margin-right: 10px;
+    }
+    
+    form input[type="text"] {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+    
+    form button {
+        padding: 10px 20px;
+        border: none;
+        background: #333;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    form button:hover {
+        background: #555;
+    }
+    
+    h1,h2 {
+        text-align: center;
+        margin-top: 30px;
+    }
+    
+    .results {
+        margin: 20px 0;
+    }
+    
+    .results h3 {
+        text-align: center;
+        color: #4CAF50;
+    }
+    
+    .result-box {
+        background-color: #f9f9f9;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .metrics {
+        margin: 20px 0;
+    }
+    
+    .metrics table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    .metrics th, .metrics td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+    
+    .metrics th {
+        background: #4CAF50;
+        color: white;
+    }
+    
+    .metrics td {
+        background: #f9f9f9;
+    }
+    
+    .metrics td strong {
+        color: #4CAF50;
+    }

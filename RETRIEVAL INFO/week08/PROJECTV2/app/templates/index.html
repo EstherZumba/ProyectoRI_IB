@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Búsqueda</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">  <!-- Enlace al archivo CSS -->
+</head>
+
+<style>
+
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+    
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 20px 0;
+        background: #4CAF50;
+        color: white;
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .header h1 {
+        margin: 0;
+    }
+    
+    form {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    form label {
+        margin-right: 10px;
+    }
+    
+    form input[type="text"] {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+    
+    form button {
+        padding: 10px 20px;
+        border: none;
+        background: #333;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    form button:hover {
+        background: #555;
+    }
+    
+    h1,h2 {
+        text-align: center;
+        margin-top: 30px;
+    }
+    
+    .results {
+        margin: 20px 0;
+    }
+    
+    .results h3 {
+        text-align: center;
+        color: #4CAF50;
+    }
+    
+    .result-box {
+        background-color: #f9f9f9;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .metrics {
+        margin: 20px 0;
+    }
+    
+    .metrics table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    .metrics th, .metrics td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+    
+    .metrics th {
+        background: #4CAF50;
+        color: white;
+    }
+    
+    .metrics td {
+        background: #f9f9f9;
+    }
+    
+    .metrics td strong {
+        color: #4CAF50;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PROYECTO DE RECUPERACION DE LA INFORMACION</h1>
+            <form action="/" method="post">
+                <label for="consulta">Consulta:</label>
+                <input type="text" id="consulta" name="consulta">
+                <button type="submit">Buscar</button>
+            </form>
+             
+        </div>
+        
+        {% if consulta %}
+        <h2>Resultados para "{{ consulta }}"</h2> 
+        
+        <div class="results">
+            <h3>Resultados BoW</h3>
+            {% for archivo, similitud, contenido in resultados_bow %}
+            <div class="result-box" style="background-color: {{ loop.cycle('#ffffcc', '#66ccff') }}">
+                <strong>Archivo:</strong> {{ archivo }} <br>
+                <strong>Similitud:</strong> {{ similitud }} <br>
+                <strong>Contenido:</strong> {{ contenido }} <br>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="results">
+            <h3>Resultados TF-IDF</h3>
+            {% for archivo, similitud, contenido in resultados_tfidf %}
+            <div class="result-box" style="background-color: {{ loop.cycle('#ffffcc', '#66ccff') }}">
+                <strong>Archivo:</strong> {{ archivo }} <br>
+                <strong>Similitud:</strong> {{ similitud }} <br>
+                <strong>Contenido:</strong> {{ contenido }} <br>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="metrics">
+            
+            <h2>Métricas de Evaluación del Sistema</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>F1-score</th>
+                </tr>
+                <tr>
+                    <td><strong>BoW</strong></td>
+                    <td>{{ promedio_precision_bow }}</td>
+                    <td>{{ promedio_recall_bow }}</td>
+                    <td>{{ promedio_f1_bow }}</td>
+                </tr>
+                <tr>
+                    <td><strong>TF-IDF</strong></td>
+                    <td>{{ promedio_precision_tfidf }}</td>
+                    <td>{{ promedio_recall_tfidf }}</td>
+                    <td>{{ promedio_f1_tfidf }}</td>
+                </tr>
+            </table>
+        
+        </div>
+        
+        {% else %}
+        <p>Ingrese una consulta para buscar.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
