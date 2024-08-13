@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #e3f2fd; /* Fondo azul claro */
+        }
+        header {
+            background-color: #000; /* Fondo negro */
+            padding: 10px 0; /* Padding superior e inferior */
+            width: 100%; /* Ocupa todo el ancho */
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        }
+        header h1 {
+            color: #fff; /* Texto blanco */
+            margin: 0;
+        }
+        form {
+            margin-top: 80px; /* Espacio para el header fijo */
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #0288d1; /* Color azul */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 150px; /* Tamaño uniforme para todos los botones */
+        }
+        button:hover {
+            background-color: #0277bd; /* Color azul oscuro en hover */
+        }
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+        .query-image {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .query-image img {
+            max-width: 300px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 5px;
+        }
+        .similar-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustar el número de columnas automáticamente */
+            gap: 10px; /* Espacio entre las imágenes */
+            justify-content: center; /* Centra la cuadrícula horizontalmente */
+            margin-top: 20px; /* Espacio superior */
+        }
+        .similar-images div {
+            text-align: center;
+        }
+        .similar-images img {
+            width: 100%; /* Asegura que la imagen ocupe el ancho del contenedor */
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 5px;
+        }
+        .similar-images h3 {
+            margin-top: 5px;
+            color: #555; /* Color gris oscuro para el texto */
+            font-size: 14px;
+        }
+        .metrics {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffffff; /* Fondo blanco para las métricas */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .metrics h2 {
+            margin-bottom: 15px;
+        }
+        .metrics p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recuperación de Imágenes</h1>
+    </header>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if query_image %}
+        <div class="query-image">
+            <h2>Imagen de Consulta</h2>
+            <img src="{{ query_image }}" alt="Imagen de Consulta" class="img-fluid">
+        </div>
+    {% endif %}
+
+    {% if search_results %}
+        <h2>Imágenes Similares</h2>
+        <div class="similar-images">
+            {% for img in search_results %}
+                <div>
+                    <img src="{{ img }}" alt="Imagen Similar" class="img-fluid">
+                    <h3>Similar {{ loop.index }}</h3> <!-- Título para cada imagen -->
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if precision is not none %}
+        <div class="metrics">
+            <h2>Métricas de Evaluación</h2>
+            <p>Precisión: {{ precision }}</p>
+            <p>Recall: {{ recall }}</p>
+            <p>F1-Score: {{ f1 }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
